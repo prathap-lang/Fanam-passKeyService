@@ -1,0 +1,12 @@
+export declare const MIN_CHAR_NAME = 2;
+export declare const MIN_CHAR_LAST_NAME = 1;
+export declare const MAX_CHAR_NAME = 50;
+export declare const MIN_CHAR_EMAIL = 6;
+export declare const MAX_CHAR_EMAIL = 150;
+export declare const MIN_CHAR_COUNTRY_CODE = 2;
+export declare const MAX_CHAR_COUNTRY_CODE = 7;
+export declare const MIN_CHAR_PHONE = 4;
+export declare const MAX_CHAR_PHONE = 12;
+export declare const MAX_FILE_SIZE = 5000000;
+export declare const MAX_ADDRESS_LINE_LENGTH = 75;
+export declare const MIN_ADDRESS_LINE_LENGTH = 1;

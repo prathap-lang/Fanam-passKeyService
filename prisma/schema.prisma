@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id                    String                 @id @default(uuid())
+  customer_hash              String?
+  first_name                 String
+  last_name                  String?
+  email                      String?                @unique
+  phone_no                   String?                @unique
+  passkey                    Passkey[]
+  created_at                 DateTime               @default(now())
+  updated_at                 DateTime               @updatedAt
+
+  @@map("user")
+}
+
+
+
+model Passkey {
+  cred_id         String   @id @default(uuid())
+  cred_public_key String
+  device_type     String
+  credential_type String
+  user            User?    @relation(fields: [user_id], references: [user_id])
+  user_id         String?
+  webauth_user_id String
+  counter         Int
+  backup_eligible Boolean  @default(true)
+  backup_status   Boolean  @default(true)
+  transports      String[]
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  @@map("passkey")
+}
+
+
+
+
+
